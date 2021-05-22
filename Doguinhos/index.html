@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>Doguitos</title>
+</head>
+
+<body>
+    <div class="mudarFundo">
+        <h1>SITE DE DOGUINHOS</h1>
+        <div id="dog1">
+            <img class="imagem1" src="Ibageins/2.jpeg" alt="Sammy" />
+            <h2>Sammy</h2>
+        </div>
+        <div id="dog2">
+            <img class="imagem2" src="Ibageins/3.jpeg" alt="Dragão" />
+            <h2>Dragão</h2>
+        </div>
+        <div id="dog3">
+            <img class="imagem3" src="Ibageins/4.jpeg" alt="Milton" />
+            <h2>Milton</h2>
+        </div>
+        <div id="dog4">
+            <img class="imagem4" src="Ibageins/5.jpeg" alt="Penny" />
+            <h2>Penny</h2>
+        </div>
+        <div id="dog5">
+            <img class="imagem5" src="Ibageins/6.jpeg" alt="Nenem" />
+            <h2>Nenem</h2>
+        </div>
+        <div id="botauns">
+            <input id="btn" type="button" value="Nome dos Spitz" onclick="soSpitz()" />
+            <!--Filter  -->
+            <input id="btn" type="button" value="Idade Real" onclick="idadeReal()" /> <!-- Map -->
+            <input id="btn" type="button" value="Soma todas as Idades" onclick="idadeSoma()" /> <!-- Reduce -->
+            <input id="btn" type="button" value="Piorar Site" onclick="mudaTudo()" />
+        </div>
+    </div>
+
+    <script>
+        dogs = [
+            {
+                nome: 'Sammy',
+                idade: 6,
+                raca: 'Samoieda'
+            },
+            {
+                nome: 'Dragão',
+                idade: 5,
+                raca: 'Spitz Alemão'
+            },
+            {
+                nome: 'Milton',
+                idade: 8,
+                raca: 'Spitz Alemão'
+            },
+            {
+                nome: 'Penny',
+                idade: 6,
+                raca: 'Spitz Alemão'
+            },
+            {
+                nome: 'Nenem',
+                idade: 4,
+                raca: 'Spitz Alemão'
+            },
+        ];
+
+        //solta seus script brabos aqui
+
+        // b1
+        function filtros(dog) {
+            return dog.raca == 'Spitz Alemão';
+        }
+
+        function soSpitz() {
+            var filtrar = dogs.filter(filtros);
+            return filtrar.forEach(x => alert(x.nome));
+        }
+
+        // b2
+        function filtro(dog) {
+            return dog.idade >= 4;
+        }
+
+        function idadeReal() {
+            var filtrarIdade = dogs.filter(filtro);
+            return filtrarIdade.forEach(x => alert(`Nome: ${x.nome}, Idade: ${x.idade}`));
+        }
+
+        // b3 
+        function idadeSoma() {
+            var soma = dogs.reduce(function (total, item) {
+                return total + item.idade
+            }, 0);
+            return alert(`${soma}`);
+        }
+
+        //b4
+        function mudaTudo() {
+
+            // mudat foto1
+            var imagem1 = document.querySelector(".imagem1");
+            imagem1.setAttribute('src', 'novaFoto/melhorar1.jpg');
+            // mudar foto2
+            var imagem2 = document.querySelector(".imagem2");
+            imagem2.setAttribute('src', 'novaFoto/melhorar2.jpg');
+            // mudar foto3
+            var imagem1 = document.querySelector(".imagem3");
+            imagem1.setAttribute('src', 'novaFoto/melhorar3.jpg');
+            // mudar foto4
+            var imagem4 = document.querySelector(".imagem4");
+            imagem4.setAttribute('src', 'novaFoto/melhorar4.jpg');
+            // mudar foto5
+            var imagem5 = document.querySelector(".imagem5");
+            imagem5.setAttribute('src', 'novaFoto/melhorar5.jpg');
+
+            // mudar fundo
+            document.body.style.backgroundColor = "blue"
+
+            //mudar h1
+            document.getElementsByTagName("h1")[0].innerHTML= "Era para piorar? Eu entendi deixar melhoror do que já estava"
+            document.getElementsByTagName("h1")[0].style.color = "orange"
+
+            //muder nome dog e cor 
+            document.getElementsByTagName("h2")[0].innerHTML="Carros bonitos em"
+            document.getElementsByTagName("h2")[1].innerHTML="Droga é o BRIAN!!"
+            document.getElementsByTagName("h2")[2].innerHTML="Puta foto bonita"
+            document.getElementsByTagName("h2")[3].innerHTML="Ele vai voltar no proximo filme!!!!!"
+            document.getElementsByTagName("h2")[4].innerHTML="The Best!!"
+            document.getElementsByTagName("h2")[0].style.color = "red"
+            document.getElementsByTagName("h2")[1].style.color = "red"
+            document.getElementsByTagName("h2")[2].style.color = "red"
+            document.getElementsByTagName("h2")[3].style.color = "red"
+            document.getElementsByTagName("h2")[4].style.color = "red"
+        }
+    </script>
+</body>
+
+</html>
